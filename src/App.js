@@ -32,6 +32,7 @@ function App() {
                 temp={data.main.temp}
                 weatherDesc={data.weather[0].description}
                 wind={data.wind.speed}
+                main={data.weather[0].main}
               />
             );
           })}
