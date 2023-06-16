@@ -24,24 +24,17 @@ function App() {
           <div className="forcast-heading">
             <h2>5 day weather</h2>
           </div>
-          {/* {edinburgWeather.list.map((data) => {
-            return <p>{data.dt_txt}</p>;
-          })}
-          {edinburgWeather.list[0].dt_txt} */}
-          {filteredArr.map((data) => {
-            return <p>{data.dt_txt}</p>;
-          })}
 
-          <Day />
-          {/* filters data to show 1 weather report per day */}
-          {edinburgWeather.list
-            .filter(function (value, index, Arr) {
-              return index % 8 === 0;
-            })
-            .map((data) => {
-              return <p>{data.dt_txt}</p>;
-            })}
-          {/* ********************************************** */}
+          {filteredArr.map((data) => {
+            return (
+              <Day
+                date={data.dt_txt}
+                temp={data.main.temp}
+                weatherDesc={data.weather[0].description}
+                wind={data.wind.speed}
+              />
+            );
+          })}
         </div>
       </section>
     </div>

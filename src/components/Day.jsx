@@ -1,15 +1,15 @@
-const Day = () => {
+const Day = (props) => {
   return (
     <div className="day">
-      <p>today</p>
-      <p>98.87&deg;</p>
+      <p>{props.date}</p>
+      <p>{props.temp}&deg;</p>
       <div>
         <i class="fa-solid fa-cloud"></i>
-        <p>partly cloudy</p>
+        <p>{props.weatherDesc}</p>
       </div>
       <div>
         <i class="fa-solid fa-wind"></i>
-        <p>16 mph</p>
+        <p>{props.wind} mph</p>
       </div>
       <i class="fa-solid fa-chevron-down"></i>
     </div>

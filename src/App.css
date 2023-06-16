@@ -36,7 +36,6 @@ section {
 .day {
   color: rgb(62, 62, 62);
   border-top: solid black 1px;
-  border-bottom: solid black 1px;
   padding-inline: 1rem;
   padding-block: 0.5em;
   display: grid;
