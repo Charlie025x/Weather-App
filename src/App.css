@@ -7,10 +7,21 @@ body {
   min-height: 100vh;
 }
 
+.grid {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+}
+
 header {
   background-color: rgb(114, 175, 225);
   color: white;
+  font-size: 1.5rem;
   text-align: center;
+  padding-block: 0.5em;
+  justify-content: center;
+  gap: 6rem;
 }
 
 section {
@@ -45,17 +56,8 @@ section {
 }
 
 .day-header {
-  display: grid;
-  grid-auto-flow: column;
-  justify-items: center;
-  align-items: center;
   justify-content: space-between;
 }
 
 .hourly {
-  display: grid;
-  grid-auto-flow: column;
-  justify-items: center;
-  align-items: center;
-  justify-content: space-between;
 }

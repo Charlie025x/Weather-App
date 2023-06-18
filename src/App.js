@@ -25,9 +25,11 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header className="grid">
         <i className="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
-        <i className="fa-solid fa-location-arrow"></i>Edinburg, TX
+        <p>
+          <i className="fa-solid fa-location-arrow"></i> Edinburg, TX
+        </p>
         <i className="fa-solid fa-user"></i>
       </header>
       <section>

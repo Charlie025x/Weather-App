@@ -7,7 +7,7 @@ const Day = (props) => {
 
   return (
     <div className="day">
-      <div className="day-header">
+      <div className="day-header grid">
         <p>{props.date.slice(0, -9)}</p>
         <p>{props.temp}&deg;</p>
         <div>
