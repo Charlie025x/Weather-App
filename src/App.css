@@ -38,6 +38,13 @@ section {
   border-top: solid black 1px;
   padding-inline: 1rem;
   padding-block: 0.5em;
+}
+
+.day p {
+  display: inline;
+}
+
+.day-header {
   display: grid;
   grid-auto-flow: column;
   justify-items: center;
@@ -45,6 +52,10 @@ section {
   justify-content: space-between;
 }
 
-.day p {
-  display: inline;
+.hourly {
+  display: grid;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
 }
