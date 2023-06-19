@@ -1,5 +1,6 @@
 import "./App.css";
 import { edinburgWeather } from "./call";
+import { useState } from "react";
 
 import Day from "./components/Day";
 
@@ -23,10 +24,41 @@ function App() {
 
   /* ********************************************** */
 
+  const [inputValue, setInputValue] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setInputValue(inputValue);
+    fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?zip=${inputValue}&appid=${process.env.REACT_APP_API_KEY}`
+    )
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
+  const handleInputChange = (e) => {
+    let inputValue = e.target.value;
+    // console.log(e.target.value);
+    setInputValue(inputValue);
+  };
+
   return (
     <div className="App">
       <header className="grid">
-        <i className="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Enter your US ZIP code"
+            onChange={handleInputChange}
+            value={inputValue}
+          />
+          <input type="submit" />
+          <i className="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
+        </form>
         <p>
           <i className="fa-solid fa-location-arrow"></i> Edinburg, TX
         </p>
