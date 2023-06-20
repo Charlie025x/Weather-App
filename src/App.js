@@ -66,28 +66,30 @@ function App() {
 
   return (
     <div className="App">
-      <header className="grid">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter your US ZIP code"
-            onChange={handleInputChange}
-            value={inputValue}
-          />
-          <button type="submit">
-            <i className="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
-          </button>
-        </form>
-        <p>
-          <i className="fa-solid fa-location-arrow"></i>{" "}
-          {data ? data.city.name : "Enter your zip code"}
-        </p>
-        <i className="fa-solid fa-user"></i>
+      <header className="">
+        <p>Get a free 5 day Weather Report! Enter your zip code to begin.</p>
+        <div className="header-bottom">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="ZIP code"
+              onChange={handleInputChange}
+              value={inputValue}
+            />
+            <button type="submit">
+              <i className="fa-solid fa-magnifying-glass fa-flip-horizontal"></i>
+            </button>
+          </form>
+          <p>
+            <i className="fa-solid fa-location-arrow"></i>{" "}
+            {data ? data.city.name : ""}
+          </p>
+        </div>
       </header>
       <section>
         <div className="weather-forcast">
           <div className="forcast-heading">
-            <h2>5 day weather</h2>
+            <h2>5 day weather forcast</h2>
           </div>
 
           {data != null
