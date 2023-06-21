@@ -32,7 +32,7 @@ function App() {
 
   const [inputValue, setInputValue] = useState("");
 
-  const [data, setData] = useState(null);
+  const [weatherData, setWeatherData] = useState(null);
 
   const [dailyWeather, setDailyWeather] = useState(null);
 
@@ -47,7 +47,7 @@ function App() {
       })
       .then((data) => {
         console.log(data);
-        setData(data);
+        setWeatherData(data);
         console.log(data);
 
         setDailyWeather(
@@ -60,7 +60,6 @@ function App() {
 
   const handleInputChange = (e) => {
     let inputValue = e.target.value;
-    // console.log(e.target.value);
     setInputValue(inputValue);
   };
 
@@ -82,7 +81,7 @@ function App() {
           </form>
           <p>
             <i className="fa-solid fa-location-arrow"></i>{" "}
-            {data ? data.city.name : ""}
+            {weatherData ? weatherData.city.name : ""}
           </p>
         </div>
       </header>
@@ -92,18 +91,9 @@ function App() {
             <h2>5 day weather forcast</h2>
           </div>
 
-          {data != null
+          {weatherData != null
             ? dailyWeather.map((data) => {
-                return (
-                  <Day
-                    key={data.dt}
-                    date={data.dt_txt}
-                    temp={data.main.temp}
-                    weatherDesc={data.weather[0].description}
-                    wind={data.wind.speed}
-                    main={data.weather[0].main}
-                  />
-                );
+                return <Day data={data} key={data.dt} />;
               })
             : ""}
 

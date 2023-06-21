@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Day = (props) => {
+const Day = ({ data }) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => setIsActive(!isActive);
@@ -8,23 +8,23 @@ const Day = (props) => {
   return (
     <div className="day">
       <div className="day-header grid">
-        <p>{props.date.slice(6, -9)}</p>
-        <p>{props.temp}&deg;</p>
+        <p>{data.dt_txt.slice(6, -9)}</p>
+        <p>{data.main.temp}&deg;F</p>
         <div>
           <i
             className={`fa-solid ${
-              props.main === "Clouds"
+              data.weather[0].main === "Clouds"
                 ? "fa-cloud"
-                : props.main === "Rain"
+                : data.weather[0].main === "Rain"
                 ? "fa-cloud-showers-heavy"
                 : "fa-sun"
             }`}
           ></i>
-          <p>{props.weatherDesc}</p>
+          <p>{data.weather[0].description}</p>
         </div>
         <div>
           <i className="fa-solid fa-wind"></i>
-          <p>{props.wind} mph</p>
+          <p>{data.wind.speed} mph</p>
         </div>
         <i className="fa-solid fa-chevron-down" onClick={handleClick}></i>
       </div>
